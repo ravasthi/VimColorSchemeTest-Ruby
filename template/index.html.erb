@@ -1,14 +1,18 @@
-
 <html>
   <head>
     <title>VIM Color Scheme Test</title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.pack.js"></script>
     <link rel="stylesheet" href="fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/twbs/bootstrap/master/dist/css/bootstrap.min.css">
     <style>
-      body { background: White; }
-      a {
+      body
+      {
+        background: white;
+      }
+
+      a
+      {
         border-top: thin none;
         border-left: thin none;
         border-bottom: thin dotted #FF9900;
@@ -16,21 +20,39 @@
         color: Black;
         text-decoration: none;
       }
-      a:hover { color: White; background: #FF9900; }
-      a.frames { border: thin dotted #FF9900; }
-      a.frames:hover { color: White; background: #FF9900; }
-      .colorscheme-box {
+
+      a:hover
+      {
+        color: white;
+        background: #FF9900;
+      }
+
+      a.frames
+      {
+        border: thin dotted #FF9900;
+      }
+
+      a.frames:hover
+      {
+        color: white;
+        background: #FF9900;
+      }
+
+      .colorscheme-box
+      {
         height: 300px;
       }
-      .colorschemes-row {
+
+      .colorschemes-row
+      {
         height: 375px;
       }
     </style>
 
     <script language="javascript">
       function changeHeight(h) {
-        $('.colorscheme-box').height(h); 
-        $('.colorschemes-row').height(h+75); 
+        $('.colorscheme-box').height(h);
+        $('.colorschemes-row').height(h+75);
       }
 
       $(document).ready(function() {
@@ -55,7 +77,7 @@
 
 
     <div class="container">
-      <div class="hero-unit">
+      <div class="jumbotron">
         <h1>VIM Color Scheme Test</h1>
         <p>
           <br/>
@@ -73,18 +95,18 @@
 
         <% color_names.each_with_index do |color_name, index| %>
 
-          <% if index % 4 == 0 %>
+          <% if index % 3 == 0 %>
             <div class="row colorschemes-row">
           <% end %>
 
-          <div class="span4 colorscheme-box">
+          <div class="col-md-4 colorscheme-box">
             <h5 class="iframe_title"><%= color_name %></h5>
             <a class="frames" href="colorschemes/<%= color_name %>.vim">Download</a> &mdash;
             <a class="iframe" href="<%= "#{language_name}/#{color_name}.html" %>">Preview</a><br/>
             <iframe src="<%= "#{language_name}/#{color_name}.html" %>" frameborder="0" width="100%" height="100%" scrolling="no"></iframe>
           </div>
 
-          <% if index % 4 == 3 %>
+          <% if index % 3 == 2 %>
             </div>
           <% end %>
 
